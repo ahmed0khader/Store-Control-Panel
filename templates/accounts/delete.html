@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-5">
+    <p>Are you sure you mant to delete "{{order}}"?</p>
+    <form action="{% url 'delete_order' order.id %}" method="POST">
+        {% csrf_token %}
+        <a class="btn btn-sm btn-info" href="{% url 'home' %}">Cancel</a>
+		<button class="btn btn-sm btn-danger" type="submit">Delete</button>
+    </form>
+</div>
+{% endblock  %}
